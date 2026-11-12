@@ -2,7 +2,6 @@ package br.com.sistemas.chamados.config;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 import br.com.sistemas.chamados.entity.Categoria;
 import br.com.sistemas.chamados.entity.Cliente;
@@ -13,7 +12,6 @@ import br.com.sistemas.chamados.repository.ClienteRepository;
 import br.com.sistemas.chamados.repository.TecnicoRepository;
 
 @Configuration
-@Profile("dev") // Executa apenas no perfil de desenvolvimento
 public class DataInitializer implements CommandLineRunner {
 
     private final ClienteRepository clienteRepository;

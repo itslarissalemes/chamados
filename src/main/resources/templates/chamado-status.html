@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Status do Chamado</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { border: none; border-radius: 12px; }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white py-3">
+                    <h4 class="mb-0 text-primary fw-bold">
+                        <i class="bi bi-pencil-square me-2"></i>Alterar Status do Chamado #<span th:text="${chamado.id}">1</span>
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-muted">Título do Problema:</label>
+                        <p class="fs-5 text-dark" th:text="${chamado.titulo}">Título</p>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold text-muted">Cliente:</label>
+                            <p class="text-dark" th:text="${chamado.cliente != null ? chamado.cliente.nome : 'N/A'}">Empresa</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold text-muted">Status Atual:</label>
+                            <p><span class="badge bg-secondary" th:text="${chamado.status}">ABERTO</span></p>
+                        </div>
+                    </div>
+
+                    <form th:action="@{/web/chamados/{id}/status(id=${chamado.id})}" method="POST">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Novo Status</label>
+                            <select class="form-select" name="status" required>
+                                <option value="ABERTO" th:selected="${chamado.status?.name() == 'ABERTO'}">Aberto</option>
+                                <option value="EM_ATENDIMENTO" th:selected="${chamado.status?.name() == 'EM_ATENDIMENTO'}">Em Atendimento</option>
+                                <option value="AGUARDANDO_APROVACAO" th:selected="${chamado.status?.name() == 'AGUARDANDO_APROVACAO'}">Aguardando Aprovação</option>
+                                <option value="SUSPENSO" th:selected="${chamado.status?.name() == 'SUSPENSO'}">Suspenso</option>
+                                <option value="CANCELADO" th:selected="${chamado.status?.name() == 'CANCELADO'}">Cancelado</option>
+                                <option value="FECHADO" th:selected="${chamado.status?.name() == 'FECHADO'}">Fechado</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="/web/dashboard" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left me-1"></i> Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-circle me-1"></i> Guardar Alteração
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
