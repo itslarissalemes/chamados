@@ -6,15 +6,6 @@ Aplicação web desenvolvida em **Java Spring Boot** para gestão e suporte de c
 
 ---
 
-## 🚀 Tecnologias Utilizadas
-* **Java 21 / Spring Boot 3.4.3**
-* **Spring Data JPA & Hibernate**
-* **Spring Security** (Autenticação e Gestão de Acessos)
-* **Thymeleaf & Bootstrap 5** (Front-end e Estilização)
-* **H2 Database** (Base de dados em memória)
-
----
-
 ## ⚙️ Como Executar o Projeto Localmente
 
 1. Certifica-te de que tens o Java 21 instalado na tua máquina.
