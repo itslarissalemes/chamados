@@ -13,6 +13,6 @@ Aplicação web desenvolvida em **Java Spring Boot** para gestão e suporte de c
 3. Executa o comando do Maven para iniciar a aplicação:
    ```powershell
    .\mvnw.cmd spring-boot:run
-4. usuario: admin
-5. senha: 123456
-
+4. link para acessar: http://localhost:8080/web/dashboard
+5. usuario: admin
+6. senha: 123456
